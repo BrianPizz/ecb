@@ -1,26 +1,130 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-1: #020617;
+  --color-2: #0ea5e9;
+  --color-3: #22c55e;
+  --color-4: #eab308;
+  --color-5: #fefce8;
+  
+  --background: var(--color-5);
+  --foreground: var(--color-1);
+  
+  --primary: var(--color-1);
+  --primary-hover: var(--color-2);
+  --primary-light: var(--color-2);
+  --primary-dark: #010409;
+  
+  --secondary: var(--color-2);
+  --secondary-light: var(--color-3);
+  --secondary-dark: var(--color-1);
+  
+  --text-primary: var(--color-1);
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --text-light: var(--color-5);
+  --text-white: #ffffff;
+  
+  --bg-primary: var(--color-5);
+  --bg-secondary: #f0f9ff;
+  --bg-tertiary: #f0f9ff;
+  --bg-dark: var(--color-1);
+  --bg-dark-secondary: #0c1220;
+  
+  --border-light: #e5e7eb;
+  --border-dark: var(--color-2);
+  
+  --accent: var(--color-4);
+  
+  --hero-gradient-from: var(--color-5);
+  --hero-gradient-to: #f0f9ff;
+  
+  --cta-gradient-from: var(--color-1);
+  --cta-gradient-to: var(--color-2);
+  
+  --gradient-palette: linear-gradient(45deg, var(--color-1), var(--color-2), var(--color-3), var(--color-4), var(--color-5));
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-open-sans);
+  --font-playwrite-india: var(--font-playwrite-india);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fefce8;
+    --foreground: #020617;
+    
+    --text-primary: #020617;
+    --text-secondary: #334155;
+    --text-tertiary: #64748b;
+    
+    --bg-primary: #fefce8;
+    --bg-secondary: #f0f9ff;
+    --bg-tertiary: #f0f9ff;
+    --bg-dark: #020617;
+    --bg-dark-secondary: #0c1220;
+    
+    --border-light: #e5e7eb;
+    --border-dark: #0ea5e9;
+    
+    --hero-gradient-from: #fefce8;
+    --hero-gradient-to: #f0f9ff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-open-sans), 'Open Sans', sans-serif;
+}
+
+.gradient-palette {
+  background: var(--gradient-palette);
+}
+
+.hover-primary:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+.hover-primary-light:hover {
+  background-color: var(--primary-light) !important;
+}
+
+.hover-text-primary:hover {
+  color: var(--text-primary) !important;
+}
+
+.hover-text-white:hover {
+  color: var(--text-white) !important;
+}
+
+.hover-bg-tertiary:hover {
+  background-color: var(--bg-tertiary) !important;
+}
+
+.hover-bg-white:hover {
+  background-color: var(--text-white) !important;
+  color: var(--primary) !important;
+}
+
+.hover-secondary:hover {
+  background-color: var(--secondary) !important;
+}
+
+.blur-section {
+  opacity: 0.5;
+  filter: blur(4px);
+  transform: translateY(20px);
+  transition: opacity 0.2s ease-out, filter 0.2s ease-out, transform 0.2s ease-out;
+  will-change: opacity, filter, transform;
+}
+
+.focus-section {
+  opacity: 1 !important;
+  filter: blur(0px) !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.2s ease-out, filter 0.2s ease-out, transform 0.2s ease-out;
 }
